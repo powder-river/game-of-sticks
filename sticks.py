@@ -31,7 +31,11 @@ def player_vs_player():
         # make_move(player1, stick_count)
         stick_count = make_move(stick_count , pick_up)
         active_player = whose_turn(active_player, player_1,player_2,)
-        print(stick_count)
+        if stick_count > 0:
+            print(stick_count)
+        else:
+            print("0")
+    print("{}, YOU LOSE AHAHAHAHAHAHAH!!!!".format(active_player))
 
 
 
