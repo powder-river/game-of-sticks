@@ -1,9 +1,14 @@
-
-player2 = "Danai"
-
-
-def make_move(stick_count, pick_up):
+def make_move(stick_count,pick_up):
     return stick_count - int(pick_up)
+
+def whose_turn(active_player,player_1,player_2):
+    if active_player == player_1:
+        active_player = player_2
+    else:
+        active_player = player_1
+
+    return active_player
+
 
 def game_complete(stick_count):
     complete = False
@@ -12,13 +17,21 @@ def game_complete(stick_count):
     return complete
 
 def player_vs_player():
-    player1 = "Maple"
+    player_1 = "Maple"
+    player_2 = "Danai"
+    active_player = player_1
     stick_count = 20
-    print("There are {} sticks in play.\n".format(stick_count))
-    pick_up = input("""{}, it is your turn. How many sticks will you pick up:
-        [1], [2] or [3]""".format(player1))
-    stick_count = make_move(stick_count , pick_up)
-    print(stick_count)
+
+
+    while game_complete(stick_count) == False:
+        pick_up = (input("""{}, it is your turn. How many sticks will you pick up:
+            [1], [2] or [3]""".format(whose_turn(active_player, player_1,player_2,))))
+
+
+        # make_move(player1, stick_count)
+        stick_count = make_move(stick_count , pick_up)
+        active_player = whose_turn(active_player, player_1,player_2,)
+        print(stick_count)
 
 
 

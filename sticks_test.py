@@ -1,14 +1,19 @@
 import unittest
 from sticks import *
 
-player1 = "John"
+player_1 = "John"
+player_2 = "Scott"
+
+active_player = player_2
 stick_count = 20
 
 class TestMysteryWord(unittest.TestCase):
 
+    def test_whose_turn(self):
+        self.assertEqual(whose_turn(active_player,player_1,player_2), "John")
 
     def test_pick_up_sticks(self):
-        self.assertEqual(make_move(player1,2), 18 )
+        self.assertEqual(make_move(stick_count,2), 18 )
 
     def test_game_over(self):
         self.assertEqual(game_complete(stick_count),False)
