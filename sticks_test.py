@@ -6,9 +6,16 @@ stick_count = 20
 
 class TestMysteryWord(unittest.TestCase):
 
-    
+
     def test_pick_up_sticks(self):
         self.assertEqual(make_move(player1,2), 18 )
+
+    def test_game_over(self):
+        self.assertEqual(game_complete(stick_count),False)
+        self.assertEqual(game_complete(0),True)
+        self.assertEqual(game_complete(-2),True)
+
+    # def test_player_vs_player(self):
 
 
     # def test_medium_words(self):
